@@ -1,5 +1,15 @@
-// const { name-of-functions } = require('./models');
+const Queries = require('./models.js');
 
-module.exports = {
-  aFunction: function (req, res) { }
+const addToList = (title) => {
+  console.log('title', title)
+  Queries.addWatched(title)
+  .then((response) => {
+    console.log(response)
+    return response
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 }
+
+module.exports = {addToList}
